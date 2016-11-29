@@ -27,7 +27,7 @@ import pickle
 def prior_parameters(mu, sigma, n):
 	return np.random.normal(mu, sigma, [3, n])
 
-S = int(1000)
+S = int(100000)
 # Pick some theta from the prior P(theta)
 mean = 0
 std = sqrt(1000)
@@ -116,13 +116,17 @@ drawGrid(d)'''
 # theta = prior_parameters(mean, std, 1)
 
 
-evidence = np.zeros([N_M,N_D])
+'''evidence = np.zeros([N_M,N_D])
 for i_m in range(N_M):
 	for i_d in range(N_D):
-		evidence[i_m, i_d] = evidence_model(D[i_d], i_m)
+		evidence[i_m, i_d] = evidence_model(D[i_d], i_m)'''
 
 #print "evidence"
-print evidence
+print "0", D[0]
+print "1", D[7]
+print "2", D[75]
+print "3", D[0]
+print "3m", D[156]
 
 # Which Datasets are the ones each model allocates the most of their probability mass?
 D_max = np.argmax(evidence,axis=1)
@@ -132,6 +136,7 @@ print "Minimums:", D_min
 
 # Obtain the evidence for all datasets and models
 sum = np.sum(evidence, axis=1)
+print sum
 index = create_index_set(np.sum(evidence,axis=0))
 
 # PLOTS #
