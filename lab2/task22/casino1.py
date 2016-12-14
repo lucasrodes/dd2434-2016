@@ -43,7 +43,7 @@ def throw_dice(value):
 			return 6'''
 
 # Number of tables visited
-K = 10000
+K = 10
 #dice_table = np.zeros([2, K]) # case 1, 2
 dice_table = np.vstack([np.zeros([1, K]), 2*np.ones([1, K])]) # case 3
 
